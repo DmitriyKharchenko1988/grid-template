@@ -200,6 +200,13 @@ template
     display: none;
 }
 
+.header-content__container,
+.header-menu__container
+{
+    width: min(100% - 40px, 1300px);
+
+    margin-inline: auto;
+}
 *,
 *::before,
 *::after
@@ -247,17 +254,15 @@ a
     display: -ms-flexbox;
     display: flex;
 
-    min-width: 250px;
-    min-height: 60px;
     padding: .5em 1em;
 
-    -webkit-transition: background-color .9s;
-         -o-transition: background-color .9s;
-            transition: background-color .9s;
+    -webkit-transition: background-color .25s;
+         -o-transition: background-color .25s;
+            transition: background-color .25s;
     letter-spacing: .1em;
 
-    border: 2px solid #fff;
-    background-color: rgba(255, 255, 255, .1);
+    border-width: 2px;
+    border-style: solid;
 
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -270,4 +275,347 @@ a
 .btn:focus
 {
     background-color: #d66926;
+}
+
+.btn--light
+{
+    min-width: 250px;
+    min-height: 60px;
+
+    border-color: #fff;
+    background-color: rgba(45, 54, 81, .1);
+}
+
+.btn--primary
+{
+    min-width: 350px;
+    min-height: 60px;
+
+    border-color: #2d3651;
+    background-color: rgba(45, 54, 81, .8);
+}
+
+.visually-hidden
+{
+    position: absolute;
+
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+
+    white-space: nowrap;
+
+    border: 0;
+
+    -webkit-clip-path: inset(100%);
+            clip-path: inset(100%);
+}
+
+.header
+{
+    position: relative;
+
+    display: grid;
+
+    min-height: 100vh;
+    padding: 150px 0;
+
+    color: #fff;
+    background-color: #2d3651;
+    background-image: url(../img/img-header.png);
+    background-position: center;
+    background-size: cover;
+
+    -ms-flex-line-pack: center;
+    align-content: center;
+}
+
+.header-overlay
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    opacity: .8;
+    background-color: #2d3651;
+}
+
+.header-menu
+{
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    padding: 20px 0;
+}
+.header-menu__container
+{
+    display: grid;
+
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.header-logo__link
+{
+    font-size: 1.5em;
+
+    display: block;
+
+    letter-spacing: .22em;
+}
+.header-logo__accent
+{
+    display: inline-block;
+
+    margin-right: 4px;
+    padding: 14px 1px 13px 5px;
+
+    border: 3px solid #d53d27;
+}
+
+.header-navbar__btn
+{
+    display: none;
+}
+.header-navbar__list
+{
+    display: grid;
+
+    margin: 0 -10px 0;
+    padding: 0;
+
+    list-style: none;
+
+    grid-template-columns: repeat(auto-fit, minmax(40px, -webkit-max-content));
+    grid-template-columns: repeat(auto-fit, minmax(40px, max-content));
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: end;
+    gap: 20px;
+}
+.header-navbar__link
+{
+    font-size: 1.125rem;
+
+    display: block;
+
+    padding: 20px 10px;
+
+    -webkit-transition: color .25s;
+         -o-transition: color .25s;
+            transition: color .25s;
+    letter-spacing: .1em;
+}
+.header-navbar__link:hover,
+.header-navbar__link:focus
+{
+    color: #d66926;
+}
+
+.header-content
+{
+    position: relative;
+    z-index: 1;
+}
+.header-content__title
+{
+    margin: 0 0 53px 0;
+
+    text-align: center;
+}
+.header-content__actions
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.skills
+{
+    padding: 10px;
+}
+.skills__container
+{
+    display: grid;
+
+    margin-bottom: 20px;
+
+    gap: 10px;
+    grid-template-areas: 'a1 a1 a2 a3' 'a4 a5 a5 a6' 'a7 a8 a9 a6';
+    grid-template-columns: repeat(4, 1fr);
+}
+.skills__actions
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    margin-bottom: 30px;
+
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.skill-item
+{
+    position: relative;
+
+    overflow: hidden;
+}
+.skill-item__title
+{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    margin: 0;
+}
+.skill-item__link
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    height: 100%;
+    padding: 20px;
+
+    -webkit-transition: color .25s;
+         -o-transition: color .25s;
+            transition: color .25s;
+
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.skill-item__image
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    -webkit-transition: -webkit-transform .25s;
+         -o-transition:         transform .25s;
+            transition: -webkit-transform .25s;
+            transition:         transform .25s;
+            transition:         transform .25s, -webkit-transform .25s;
+
+    background-color: #2d3651;
+    background-position: center;
+    background-size: cover;
+}
+.skill-item__overlay
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    -webkit-transition: opacity .25s;
+         -o-transition: opacity .25s;
+            transition: opacity .25s;
+
+    opacity: .8;
+    background-color: #2d3651;
+}
+.skill-item:hover .skill-item__overlay
+{
+    opacity: .95;
+}
+.skill-item:hover .skill-item__image
+{
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1);
+}
+.skill-item:hover .skill-item__link
+{
+    color: #d66926;
+}
+
+.skill-item:nth-of-type(1)
+{
+    grid-area: a1;
+}
+
+.skill-item:nth-of-type(2)
+{
+    grid-area: a2;
+}
+
+.skill-item:nth-of-type(3)
+{
+    grid-area: a3;
+}
+
+.skill-item:nth-of-type(4)
+{
+    grid-area: a4;
+}
+
+.skill-item:nth-of-type(5)
+{
+    grid-area: a5;
+}
+
+.skill-item:nth-of-type(6)
+{
+    grid-area: a6;
+}
+
+.skill-item:nth-of-type(7)
+{
+    grid-area: a7;
+}
+
+.skill-item:nth-of-type(8)
+{
+    grid-area: a8;
+}
+
+.skill-item:nth-of-type(9)
+{
+    grid-area: a9;
+}
+
+@media (min-height: 691px)
+{
+    .skills__container
+    {
+        grid-auto-rows: calc(33.3333vh - 13.3333333333px);
+    }
+}
+
+@media (max-height: 690px)
+{
+    .skills__container
+    {
+        grid-auto-rows: 216.6666666667px;
+    }
 }
