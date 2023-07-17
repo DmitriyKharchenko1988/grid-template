@@ -1,185 +1,157 @@
-@use '../../presets' as *;
-@use '../../mixins' as *;
+@use "../../presets" as *;
+@use "../../mixins" as *;
 
-.header-navbar
-{
-    &__list
-    {
-        @include md-min
-        {
-            display: grid;
+.header-navbar {
+  &__list {
+    @include md-min {
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(auto-fit, minmax(50px, max-content));
+      justify-content: end;
+      @include unlist(0 (-$gap-sm) 0 0);
+      gap: $gap-x2;
+    }
+    @include md {
+      position: absolute;
+      top: 100%;
+      right: $gap;
 
-            grid-template-columns: repeat(auto-fit, minmax(40px, max-content));
-            justify-content: end;
-            @include unlist(0 (-$gap-sm) 0);
-            gap: $gap;
-        }
-        @include md
-        {
-            position: absolute;
-            top: 100%;
-            right: $gap;
+      display: none;
 
-            display: none;
+      background-color: rgba($color-gray-dark, 0.95);
 
-            background-color: rgba($color-gray-dark, .95);
-
-            @include unlist;
-            @include box-shadow;
-        }
-
-        &.active
-        {
-            display: block;
-        }
+      @include unlist;
+      @include box-shadow;
     }
 
-    &__item
-    {
-        @include md
-        {
-            margin: $gap $gap-sm;
-        }
+    &.active {
+      display: block;
+    }
+  }
+
+  &__item {
+    @include md {
+      margin: $gap $gap-sm;
+    }
+  }
+
+  &__link {
+    font-size: 1.125rem;
+
+    display: block;
+
+    transition: color 0.25s;
+    letter-spacing: 0.1em;
+
+    @include md-min {
+    }
+    @include md {
+      padding: $gap-sm $gap;
     }
 
-    &__link
-    {
-        font-size: 1.125rem;
+    &:hover,
+    &:focus {
+      color: #d66926;
+    }
+  }
 
-        display: block;
+  &__btn {
+    position: relative;
 
-        transition: color .25s;
-        letter-spacing: .1em;
+    width: 30px;
+    height: 22.5px;
+    margin: $gap-sm 0 $gap-sm auto;
 
-        @include md-min
-        {
-        }
-        @include md
-        {
-            padding: $gap-sm $gap;
-        }
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+    transform: rotate(0deg);
 
-        &:hover,
-        &:focus
-        {
-            color: #d66926;
-        }
+    @include md-min {
+      display: none;
     }
 
-    &__btn
-    {
-        position: relative;
+    &-row {
+      position: absolute;
 
-        width: 30px;
-        height: 22.5px;
-        margin: $gap-sm 0 $gap-sm auto;
+      display: block;
 
-        cursor: pointer;
-        transition: .5s ease-in-out;
-        transform: rotate(0deg);
+      width: 50%;
+      height: 3px;
 
-        @include md-min
-        {
-            display: none;
-        }
+      transition: 0.25s ease-in-out;
+      transform: rotate(0deg);
 
-        &-row
-        {
-            position: absolute;
+      opacity: 1;
+      background: $color-light;
 
-            display: block;
+      &:nth-child(even) {
+        left: 50%;
 
-            width: 50%;
-            height: 3px;
+        border-radius: 0 3px 3px 0;
+      }
+      &:nth-child(odd) {
+        left: 0;
 
-            transition: .25s ease-in-out;
-            transform: rotate(0deg);
+        border-radius: 3px 0 0 3px;
+      }
 
-            opacity: 1;
-            background: $color-light;
+      &:nth-child(1),
+      &:nth-child(2) {
+        top: 0;
+      }
 
-            &:nth-child(even)
-            {
-                left: 50%;
+      &:nth-child(3),
+      &:nth-child(4) {
+        top: 9px;
+      }
 
-                border-radius: 0 3px 3px 0;
-            }
-            &:nth-child(odd)
-            {
-                left: 0;
-
-                border-radius: 3px 0 0 3px;
-            }
-
-            &:nth-child(1),
-            &:nth-child(2)
-            {
-                top: 0;
-            }
-
-            &:nth-child(3),
-            &:nth-child(4)
-            {
-                top: 9px;
-            }
-
-            &:nth-child(5),
-            &:nth-child(6)
-            {
-                top: 18px;
-            }
-        }
-        &.active span
-        {
-            &:nth-child(1),
-            &:nth-child(6)
-            {
-                transform: rotate(45deg);
-            }
-
-            &:nth-child(2),
-            &:nth-child(5)
-            {
-                transform: rotate(-45deg);
-            }
-
-            &:nth-child(1)
-            {
-                top: 3.5px;
-                left: 2.5px;
-            }
-
-            &:nth-child(2)
-            {
-                top: 3.5px;
-                left: calc(50% - 2.5px);
-            }
-
-            &:nth-child(3)
-            {
-                left: -50%;
-
-                opacity: 0;
-            }
-
-            &:nth-child(4)
-            {
-                left: 100%;
-
-                opacity: 0;
-            }
-
-            &:nth-child(5)
-            {
-                top: 14.5px;
-                left: 2.5px;
-            }
-
-            &:nth-child(6)
-            {
-                top: 14.5px;
-                left: calc(50% - 2.5px);
-            }
-        }
+      &:nth-child(5),
+      &:nth-child(6) {
+        top: 18px;
+      }
     }
+    &.active span {
+      &:nth-child(1),
+      &:nth-child(6) {
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(2),
+      &:nth-child(5) {
+        transform: rotate(-45deg);
+      }
+
+      &:nth-child(1) {
+        top: 3.5px;
+        left: 2.5px;
+      }
+
+      &:nth-child(2) {
+        top: 3.5px;
+        left: calc(50% - 2.5px);
+      }
+
+      &:nth-child(3) {
+        left: -50%;
+
+        opacity: 0;
+      }
+
+      &:nth-child(4) {
+        left: 100%;
+
+        opacity: 0;
+      }
+
+      &:nth-child(5) {
+        top: 14.5px;
+        left: 2.5px;
+      }
+
+      &:nth-child(6) {
+        top: 14.5px;
+        left: calc(50% - 2.5px);
+      }
+    }
+  }
 }
