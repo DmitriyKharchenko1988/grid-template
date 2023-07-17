@@ -8,13 +8,12 @@
 }
 
 html {
+  overflow-y: scroll;
   font-family: $font-main;
   font-size: $font-size;
 }
 
 body {
-  overflow-y: scroll;
-
   color: $color-gray;
   background-color: $color-light;
 }
@@ -66,4 +65,8 @@ a {
   text-decoration: none;
 
   color: $color-light;
+}
+
+input:focus {
+  outline: none;
 }
