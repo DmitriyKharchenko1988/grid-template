@@ -15,6 +15,9 @@
 @use "components/about";
 @use "components/form";
 
+@use "components/posts";
+@use "components/footer";
+
 @media (min-height: 691px) {
   .skills__container {
     grid-auto-rows: calc(33.3333vh - 40px / 3);
