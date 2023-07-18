@@ -1,5 +1,5 @@
-@use '../../presets' as *;
-@use '../../mixins' as *;
+@use '../../presets/index' as *;
+@use '../../mixins/index' as *;
 
 .form
 {
@@ -77,8 +77,8 @@
         height: 60px;
         padding-right: $gap-lg;
         padding-left: $gap-lg;
-        // transition: background-color 0.5s, border-color 0.5s;
 
+        transition: background-color .5s, border-color .5s;
         letter-spacing: .15em;
 
         color: $color-light;

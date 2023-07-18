@@ -1,23 +1,26 @@
 @use '../presets/' as *;
 
-// @mixin text-shortener {
-//   display: block;
-//   overflow: hidden;
+@mixin text-shortener
+{
+    display: block;
+    overflow: hidden;
 
-//   white-space: nowrap;
-//   text-overflow: ellipsis;
-// }
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 
-// @mixin bg-color($a: 0, $rgb: 0) {
-//   background: rgba($rgb, $rgb, $rgb, $a);
-// }
+@mixin bg-color($a: 0, $rgb: 0)
+{
+    background: rgba($rgb, $rgb, $rgb, $a);
+}
 
-// @mixin block-header {
-//   margin: 0;
-//   padding-bottom: 10px;
+@mixin block-header
+{
+    margin: 0;
+    padding-bottom: 10px;
 
-//   border-bottom: 1px solid $color-dark;
-// }
+    border-bottom: 1px solid $color-dark;
+}
 
 @mixin visually-hidden
 {

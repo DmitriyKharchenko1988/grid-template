@@ -1,5 +1,5 @@
-@use '../../presets' as *;
-@use '../../mixins' as *;
+@use '../../presets/index' as *;
+@use '../../mixins/index' as *;
 
 .posts
 {
@@ -30,7 +30,7 @@
         @include md-sm
         {
             grid-template-areas: 'p1 p2' 'p3 p4' 'p5 p6';
-            grid-template-columns: repeat(1, 1fr);
+            grid-template-columns: 1fr 1fr;
         }
         @include sm
         {
