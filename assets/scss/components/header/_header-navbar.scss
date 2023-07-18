@@ -1,157 +1,187 @@
-@use "../../presets" as *;
-@use "../../mixins" as *;
+@use '../../presets' as *;
+@use '../../mixins' as *;
 
-.header-navbar {
-  &__list {
-    @include md-min {
-      display: grid;
-      width: 100%;
-      grid-template-columns: repeat(auto-fit, minmax(50px, max-content));
-      justify-content: end;
-      @include unlist(0 (-$gap-sm) 0 0);
-      gap: $gap-x2;
-    }
-    @include md {
-      position: absolute;
-      top: 100%;
-      right: $gap;
+.header-navbar
+{
+    &__list
+    {
+        @include md-min
+        {
+            display: grid;
 
-      display: none;
+            width: 100%;
 
-      background-color: rgba($color-gray-dark, 0.95);
+            grid-template-columns: repeat(auto-fit, minmax(50px, max-content));
+            justify-content: end;
+            @include unlist(0 (-$gap-sm) 0 0);
+            gap: $gap-x2;
+        }
+        @include md
+        {
+            position: absolute;
+            top: 100%;
+            right: $gap;
 
-      @include unlist;
-      @include box-shadow;
-    }
+            display: none;
 
-    &.active {
-      display: block;
-    }
-  }
+            background-color: rgba($color-gray-dark, .95);
 
-  &__item {
-    @include md {
-      margin: $gap $gap-sm;
-    }
-  }
+            @include unlist;
+            @include box-shadow;
+        }
 
-  &__link {
-    font-size: 1.125rem;
-
-    display: block;
-
-    transition: color 0.25s;
-    letter-spacing: 0.1em;
-
-    @include md-min {
-    }
-    @include md {
-      padding: $gap-sm $gap;
+        &.active
+        {
+            display: block;
+        }
     }
 
-    &:hover,
-    &:focus {
-      color: #d66926;
-    }
-  }
-
-  &__btn {
-    position: relative;
-
-    width: 30px;
-    height: 22.5px;
-    margin: $gap-sm 0 $gap-sm auto;
-
-    cursor: pointer;
-    transition: 0.5s ease-in-out;
-    transform: rotate(0deg);
-
-    @include md-min {
-      display: none;
+    &__item
+    {
+        @include md
+        {
+            margin: $gap $gap-sm;
+        }
     }
 
-    &-row {
-      position: absolute;
+    &__link
+    {
+        font-size: 1.125rem;
 
-      display: block;
+        display: block;
 
-      width: 50%;
-      height: 3px;
+        transition: color .25s;
+        letter-spacing: .1em;
 
-      transition: 0.25s ease-in-out;
-      transform: rotate(0deg);
+        @include md-min
+        {
+        }
+        @include md
+        {
+            padding: $gap-sm $gap;
+        }
 
-      opacity: 1;
-      background: $color-light;
-
-      &:nth-child(even) {
-        left: 50%;
-
-        border-radius: 0 3px 3px 0;
-      }
-      &:nth-child(odd) {
-        left: 0;
-
-        border-radius: 3px 0 0 3px;
-      }
-
-      &:nth-child(1),
-      &:nth-child(2) {
-        top: 0;
-      }
-
-      &:nth-child(3),
-      &:nth-child(4) {
-        top: 9px;
-      }
-
-      &:nth-child(5),
-      &:nth-child(6) {
-        top: 18px;
-      }
+        &:hover,
+        &:focus
+        {
+            color: #d66926;
+        }
     }
-    &.active span {
-      &:nth-child(1),
-      &:nth-child(6) {
-        transform: rotate(45deg);
-      }
 
-      &:nth-child(2),
-      &:nth-child(5) {
-        transform: rotate(-45deg);
-      }
+    &__btn
+    {
+        position: relative;
 
-      &:nth-child(1) {
-        top: 3.5px;
-        left: 2.5px;
-      }
+        width: 30px;
+        height: 22.5px;
+        margin: $gap-sm 0 $gap-sm auto;
 
-      &:nth-child(2) {
-        top: 3.5px;
-        left: calc(50% - 2.5px);
-      }
+        cursor: pointer;
+        transition: .5s ease-in-out;
+        transform: rotate(0deg);
 
-      &:nth-child(3) {
-        left: -50%;
+        @include md-min
+        {
+            display: none;
+        }
 
-        opacity: 0;
-      }
+        &-row
+        {
+            position: absolute;
 
-      &:nth-child(4) {
-        left: 100%;
+            display: block;
 
-        opacity: 0;
-      }
+            width: 50%;
+            height: 3px;
 
-      &:nth-child(5) {
-        top: 14.5px;
-        left: 2.5px;
-      }
+            transition: .25s ease-in-out;
+            transform: rotate(0deg);
 
-      &:nth-child(6) {
-        top: 14.5px;
-        left: calc(50% - 2.5px);
-      }
+            opacity: 1;
+            background: $color-light;
+
+            &:nth-child(even)
+            {
+                left: 50%;
+
+                border-radius: 0 3px 3px 0;
+            }
+            &:nth-child(odd)
+            {
+                left: 0;
+
+                border-radius: 3px 0 0 3px;
+            }
+
+            &:nth-child(1),
+            &:nth-child(2)
+            {
+                top: 0;
+            }
+
+            &:nth-child(3),
+            &:nth-child(4)
+            {
+                top: 9px;
+            }
+
+            &:nth-child(5),
+            &:nth-child(6)
+            {
+                top: 18px;
+            }
+        }
+        &.active span
+        {
+            &:nth-child(1),
+            &:nth-child(6)
+            {
+                transform: rotate(45deg);
+            }
+
+            &:nth-child(2),
+            &:nth-child(5)
+            {
+                transform: rotate(-45deg);
+            }
+
+            &:nth-child(1)
+            {
+                top: 3.5px;
+                left: 2.5px;
+            }
+
+            &:nth-child(2)
+            {
+                top: 3.5px;
+                left: calc(50% - 2.5px);
+            }
+
+            &:nth-child(3)
+            {
+                left: -50%;
+
+                opacity: 0;
+            }
+
+            &:nth-child(4)
+            {
+                left: 100%;
+
+                opacity: 0;
+            }
+
+            &:nth-child(5)
+            {
+                top: 14.5px;
+                left: 2.5px;
+            }
+
+            &:nth-child(6)
+            {
+                top: 14.5px;
+                left: calc(50% - 2.5px);
+            }
+        }
     }
-  }
 }
