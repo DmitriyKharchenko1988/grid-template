@@ -1,24 +1,21 @@
-@use '../../presets' as *;
-@use '../../mixins/' as *;
+@use "../../presets" as *;
+@use "../../mixins/" as *;
 
-.header-logo
-{
-    &__link
-    {
-        font-size: 1.5em;
+.header-logo {
+  &__link {
+    font-size: 1.5em;
 
-        display: block;
+    display: block;
 
-        letter-spacing: .22em;
-    }
+    letter-spacing: 0.22em;
+  }
 
-    &__accent
-    {
-        display: inline-block;
+  &__accent {
+    display: inline-block;
 
-        margin-right: 4px;
-        padding: 14px 1px 13px 5px;
+    margin-right: 4px;
+    padding: 14px 1px 13px 5px;
 
-        border: 3px solid $color-highlight;
-    }
+    border: 3px solid $color-highlight;
+  }
 }

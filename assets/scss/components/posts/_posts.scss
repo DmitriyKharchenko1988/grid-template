@@ -1,45 +1,37 @@
-@use '../../presets/index' as *;
-@use '../../mixins/index' as *;
+@use "../../presets/index" as *;
+@use "../../mixins/index" as *;
 
-.posts
-{
-    @extend %section;
+.posts {
+  @extend %section;
 
-    &__container
-    {
-        @extend %container;
+  &__container {
+    @extend %container;
+  }
+
+  &__grid {
+    display: grid;
+
+    padding-bottom: $gap;
+
+    gap: $gap;
+    @include lg-min {
+      grid-template-areas: "p1 p1 p2 p3" "p4 p5 p6 p6";
+      grid-template-columns: repeat(4, 1fr);
     }
-
-    &__grid
-    {
-        display: grid;
-
-        padding-bottom: $gap;
-
-        gap: $gap;
-        @include lg-min
-        {
-            grid-template-areas: 'p1 p1 p2 p3' 'p4 p5 p6 p6';
-            grid-template-columns: repeat(4, 1fr);
-        }
-        @include lg-md
-        {
-            grid-template-areas: 'p1 p1 p2' 'p3 p4 p4' 'p5 p5 p6';
-            grid-template-columns: repeat(3, 1fr);
-        }
-        @include md-sm
-        {
-            grid-template-areas: 'p1 p2' 'p3 p4' 'p5 p6';
-            grid-template-columns: 1fr 1fr;
-        }
-        @include sm
-        {
-            grid-template-areas: 'p1' 'p2' 'p3' 'p4' 'p5' 'p6';
-        }
+    @include lg-md {
+      grid-template-areas: "p1 p1 p2" "p3 p4 p4" "p5 p5 p6";
+      grid-template-columns: repeat(3, 1fr);
     }
-
-    &__action
-    {
-        @extend %btn-container;
+    @include md-sm {
+      grid-template-areas: "p1 p2" "p3 p4" "p5 p6";
+      grid-template-columns: 1fr 1fr;
     }
+    @include sm {
+      grid-template-areas: "p1" "p2" "p3" "p4" "p5" "p6";
+    }
+  }
+
+  &__action {
+    @extend %btn-container;
+  }
 }

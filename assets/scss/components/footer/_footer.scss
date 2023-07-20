@@ -1,86 +1,75 @@
-@use '../../presets' as *;
-@use '../../mixins' as *;
+@use "../../presets" as *;
+@use "../../mixins" as *;
 
-.footer
-{
-    padding: ($gap * 2.5) $gap ($gap * 3.5);
+.footer {
+  padding: ($gap * 2.5) $gap ($gap * 3.5);
 
-    text-align: center;
+  text-align: center;
 
-    background-color: $color-primary;
+  background-color: $color-primary;
 
-    &__container
-    {
-        @extend %container;
+  &__container {
+    @extend %container;
+  }
+
+  &__item {
+    position: relative;
+
+    display: grid;
+
+    margin-bottom: $gap-x2;
+
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(50px, max-content));
+
+    &::after {
+      position: absolute;
+      bottom: -$gap;
+      left: calc(50% - 75px / 2);
+
+      width: 75px;
+      height: 2px;
+
+      content: "";
+
+      background-color: rgba($color-light, 0.1);
     }
 
-    &__item
-    {
-        position: relative;
+    a {
+      display: block;
 
-        display: grid;
+      padding: $gap-sm;
 
-        margin-bottom: $gap-x2;
+      transition: color 0.5s;
 
-        justify-content: center;
-        grid-template-columns: repeat(auto-fit, minmax(50px, max-content));
-
-        &::after
-        {
-            position: absolute;
-            bottom: -$gap;
-            left: calc(50% - 75px / 2);
-
-            width: 75px;
-            height: 2px;
-
-            content: '';
-
-            background-color: rgba($color-light, .1);
-        }
-
-        a
-        {
-            display: block;
-
-            padding: $gap-sm;
-
-            transition: color .5s;
-
-            &:hover,
-            &:focus
-            {
-                color: $color-accent;
-            }
-        }
-
-        .fab
-        {
-            font-size: 36px;
-        }
+      &:hover,
+      &:focus {
+        color: $color-accent;
+      }
     }
 
-    &__copy
-    {
-        span
-        {
-            &:nth-of-type(1)
-            {
-                font-weight: 100;
-
-                margin-right: -.5em;
-
-                letter-spacing: .33em;
-            }
-
-            &:nth-of-type(2)
-            {
-                font-weight: 700;
-
-                letter-spacing: .05em;
-
-                color: $color-gray-light;
-            }
-        }
+    .fab {
+      font-size: 36px;
     }
+  }
+
+  &__copy {
+    span {
+      &:nth-of-type(1) {
+        font-weight: 100;
+
+        margin-right: -0.5em;
+
+        letter-spacing: 0.33em;
+      }
+
+      &:nth-of-type(2) {
+        font-weight: 700;
+
+        letter-spacing: 0.05em;
+
+        color: $color-gray-light;
+      }
+    }
+  }
 }

@@ -1,86 +1,77 @@
-@use '../../presets' as *;
-@use '../../mixins/' as *;
+@use "../../presets" as *;
+@use "../../mixins/" as *;
 
-.skill-item
-{
-    position: relative;
+.skill-item {
+  position: relative;
 
-    overflow: hidden;
+  display: grid;
+  overflow: hidden;
+  align-items: center;
+  padding: $gap;
+  justify-items: center;
 
-    &__title
-    {
-        z-index: 1;
+  &__title {
+    z-index: 1;
 
-        margin: 0;
+    margin: 0;
 
-        letter-spacing: .1em;
+    letter-spacing: 0.1em;
 
-        @include abs-position;
-        @include md-min
-        {
-            font-size: 1.25rem;
-        }
-        @include md
-        {
-            font-size: 1.125rem;
-        }
+    @include abs-position;
+    @include md-min {
+      font-size: 1.25rem;
     }
-
-    &__link
-    {
-        display: flex;
-
-        height: 100%;
-        padding: $gap;
-
-        transition: color .25s;
-
-        justify-content: center;
-        align-items: center;
+    @include md {
+      font-size: 1.125rem;
     }
+  }
 
-    &__image
-    {
-        transition: transform .25s;
+  &__link {
+    display: flex;
 
-        background-color: $color-primary;
-        background-position: center;
-        background-size: cover;
+    height: 100%;
+    padding: $gap;
 
-        @include abs-position;
+    transition: color 0.25s;
+
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__image {
+    transition: transform 0.25s;
+
+    background-color: $color-primary;
+    background-position: 50% 50%;
+    background-size: cover;
+
+    @include abs-position;
+  }
+
+  &__overlay {
+    transition: opacity 0.25s;
+
+    opacity: 0.8;
+    background-color: $color-primary;
+
+    @include abs-position;
+  }
+
+  &:hover {
+    .skill-item__overlay {
+      opacity: 0.95;
     }
-
-    &__overlay
-    {
-        transition: opacity .25s;
-
-        opacity: .8;
-        background-color: $color-primary;
-
-        @include abs-position;
+    .skill-item__image {
+      transform: scale(1.1);
     }
-
-    &:hover
-    {
-        .skill-item__overlay
-        {
-            opacity: .95;
-        }
-        .skill-item__image
-        {
-            transform: scale(1.1);
-        }
-        .skill-item__link
-        {
-            color: $color-accent;
-        }
+    .skill-item__link {
+      color: $color-accent;
     }
+  }
 }
 
-@for $i from 1 through 9
-{
-    .skill-item:nth-of-type(#{$i})
-    {
-        grid-area: a#{$i};
-    }
+@for $i from 1 through 9 {
+  .skill-item:nth-of-type(#{$i}) {
+    grid-area: a#{$i};
+  }
 }
